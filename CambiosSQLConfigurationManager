@@ -1,0 +1,4 @@
+1- Configuración de red de SQL Server -> Protocolos de SQL Express -> TCP/IP -> IP 10 Habilitado: SI (Antes NO)
+2-                                                                           -> IPAll TCP Port: 1433 (Antes -)
+                                                                             ->       Puertos dinámicos TCP: - (Antes 62385)
+3- Servicios de SQL Server -> SQL Server Browser -> Modo de inicio: Automático (Antes Deshabilitado)

@@ -1,0 +1,14 @@
+1- No conecta MSSQL.
+    1.1- No conecta.
+    1.2- Como consecuencia las consultas las tengo en lenguaje para MySQL. Tendré que cambiarlas.
+
+2- No funcionan los comandos 'get' del controller. No puedo leer en la base de datos. 'Post', 'delete' y 'put' funcionan bien.
+    2.1- En obtener todos (list) da error circular.
+    2.2- En obtener 1 (getOne) no entiendo el error.
+    2.3 (2.1)- Si busco http://localhost:3000/api/encargados da el error circular. En realidad creo que es lo mismo que el 2.1.
+SOLUCIÓN: Por ahora hacerlo todo y dejarlo así. Cuando conecte a MSSQL probablemente se arreglará.
+
+3- Tengo que meter algún tipo de comprobación por si no existe lo que pides (en el 01:25:30 él hace una).
+
+4- En 'Controller' y 'Routes' de 'experiencia' ¿cómo diferencias si te están dando un puesto o un trabajador?
+    4.1- Hay que añadir filtros a saco a los registros.
