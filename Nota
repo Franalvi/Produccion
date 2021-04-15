@@ -1,0 +1,9 @@
+Me llego por el 1:42:30
+
+Ejecuciones iniciales:
+cd server->
+    npm run build
+    npm run dev
+
+cd client->
+    ng serve
