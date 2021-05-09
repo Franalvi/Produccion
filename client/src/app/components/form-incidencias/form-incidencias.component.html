@@ -1,0 +1,48 @@
+<div class="row">  
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <!--<mat-form-field appearance="fill">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="incidencia.fecha">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>--> <!--No funciona-->
+                    <div class="form-grup">
+                        <input type="text" name="fecha" [(ngModel)]="incidencia.fecha" placeholder="Fecha (AAAA-MM-DD)" class="form-control" autofocus>
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="<id_trabajador>" [(ngModel)]="incidencia.id_trabajador" placeholder="Trabajador" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" name="id_puesto" [(ngModel)]="incidencia.id_puesto" placeholder="Puesto" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="indice" [(ngModel)]="incidencia.indice" placeholder="Indice" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo" [(ngModel)]="incidencia.tiempo" placeholder="Tiempo" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" name="descripcion" [(ngModel)]="incidencia.descripcion" placeholder="Descripción" class="form-control">
+                    </div>
+                    <button class = "btn btn-success btn-block" (click)="edit ? updateIncidencias() : guardarIncidencias()">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col md-4">
+    <div class="card card-body text-center">
+        <h3>{{incidencia.id_trabajador == null ? 'Incidencia' : incidencia.id_trabajador}} </h3>
+        <p>{{incidencia.id_puesto}}</p>
+        <p>{{incidencia.fecha}}</p>
+        <p>{{incidencia.indice}}</p>
+        <p>{{incidencia.tiempo}}</p>
+        <p>{{incidencia.descripcion}}</p>
+    </div>
+</div>

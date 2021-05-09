@@ -7,9 +7,10 @@ import encargadosRoutes from './routes/encargadosRoutes';
 import trabajadoresRoutes from './routes/trabajadoresRoutes';
 import grupoPuestosRoutes from './routes/grupoPuestosRoutes';
 import puestosRoutes from './routes/puestosRoutes';
-import experienciaRoutes from './routes/incidenciasRoutes';
+import experienciaRoutes from './routes/experienciaRoutes';
 import registrosRoutes from './routes/registrosRoutes';
 import incidenciasRoutes from './routes/incidenciasRoutes';
+import indiceIncidenciasRoutes from './routes/indiceIncidenciasRoutes';
 import planificacionRoutes from './routes/planificacionRoutes';
 
 
@@ -40,6 +41,7 @@ class Server {
         this.app.use('/api/experiencia', experienciaRoutes);
         this.app.use('/api/registros', registrosRoutes);
         this.app.use('/api/incidencias', incidenciasRoutes);
+        this.app.use('/api/indiceincidencias', indiceIncidenciasRoutes);
         this.app.use('/api/planificacion', planificacionRoutes);
     }
 

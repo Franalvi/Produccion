@@ -1,0 +1,43 @@
+
+  
+
+<div class="row">  
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    <div class="form-grup">
+                        <input type="text" name="fecha" [(ngModel)]="planificacion.fecha" placeholder="Fecha (AAAA-MM-DD)" class="form-control" autofocus>
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" name="trabajador" [(ngModel)]="planificacion.id_trabajador" placeholder="Trabajador" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" name="puesto" [(ngModel)]="planificacion.id_puesto" placeholder="Puesto" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="numero" [(ngModel)]="planificacion.numero" placeholder="Numero" class="form-control">
+                    </div>
+                    <button class = "btn btn-success btn-block" (click)="edit ? updatePlanificacion() : guardarPlan()">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col md-4">
+    <div class="card card-body text-center">
+        <h3>{{planificacion.fecha == '' ? 'Fecha' : planificacion.fecha}} </h3>
+        <p>{{planificacion.id_trabajador}}</p>
+        <p>{{planificacion.id_puesto}}</p>
+        <p>{{planificacion.numero}}</p>
+    </div>
+</div>

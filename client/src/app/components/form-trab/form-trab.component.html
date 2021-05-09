@@ -1,0 +1,41 @@
+<div class="row">  
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-grup">
+                        <input type="text" name="nombre" [(ngModel)]="trabajador.nombre" placeholder="Nombre" class="form-control" autofocus>
+                    </div>
+                    <div class="form-grup"> 
+                        <!--<select >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>--> <!--Funciona-->
+                        <mat-form-field appearance="fill"> 
+                            <mat-label>Turno</mat-label>
+                            <select matNativeControl required [(ngModel)]="trabajador.turno">
+                              <option value="null"></option>
+                              <option value="1">Aitor</option>
+                              <option value="2">Víctor</option>
+                            </select>
+                            </mat-form-field> <!--No funciona-->
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" name="id_alfabetico" [(ngModel)]="trabajador.id_alfabetico" placeholder="ID alfabético" class="form-control">
+                    </div>
+                    <button class = "btn btn-success btn-block" (click)="edit ? updateTrabajador() : guardarTrabajador()">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col md-4">
+    <div class="card card-body text-center">
+        <h3>{{trabajador.nombre == '' ? 'Trabajador' : trabajador.nombre}} </h3>
+        <p>{{trabajador.turno}}</p>
+        <p>{{trabajador.id_alfabetico}}</p>
+    </div>
+</div>

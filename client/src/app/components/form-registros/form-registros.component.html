@@ -1,0 +1,81 @@
+<div class="row">  
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      
+                    <div class="form-grup">
+                        <input type="text" name="fecha" [(ngModel)]="registro.fecha" placeholder="Fecha" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="id_trabajador" [(ngModel)]="registro.id_trabajador" placeholder="ID trabajador" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="id_puesto" [(ngModel)]="registro.id_puesto" placeholder="ID puesto" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="cantidad_total" [(ngModel)]="registro.cantidad_total" placeholder="Cantidad total" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="tiempo_total" [(ngModel)]="registro.tiempo_total" placeholder="Tiempo total" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="tiempo_empleado" [(ngModel)]="registro.tiempo_empleado" placeholder="Tiempo empleado" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="tiempo_disponible" [(ngModel)]="registro.tiempo_disponible" placeholder="Tiempo disponible" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="tiempo_perdido" [(ngModel)]="registro.tiempo_perdido" placeholder="Tiempo perdido" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="produccion" [(ngModel)]="registro.produccion" placeholder="Producción" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="productividad" [(ngModel)]="registro.productividad" placeholder="Productividad" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="ritmo" [(ngModel)]="registro.ritmo" placeholder="Ritmo" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="tiempo_restante" [(ngModel)]="registro.tiempo_restante" placeholder="Tiempo restante" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" name="cambio_turno" [(ngModel)]="registro.cambio_turno" placeholder="Cambio turno" class="form-control">
+                    </div>
+                    
+                    <button class = "btn btn-success btn-block" (click)="edit ? updateRegistro() : guardarRegistro()">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col md-4">
+    <div class="card card-body text-center">
+        <h3>{{registro.id_trabajador == null ? 'Trabajador' : registro.id_trabajador}} </h3>
+        <p>{{registro.fecha}}</p>
+        <p>{{registro.id_puesto}}</p>
+        <p>{{registro.cantidad_total}}</p>
+        <p>{{registro.cantidad_realizada}}</p>
+        <p>{{registro.tiempo_total}}</p>
+        <p>{{registro.tiempo_empleado}}</p>
+        <p>{{registro.tiempo_disponible}}</p>
+        <p>{{registro.tiempo_perdido}}</p>
+        <p>{{registro.produccion}}</p>
+        <p>{{registro.productividad}}</p>
+        <p>{{registro.ritmo}}</p>
+        <p>{{registro.tiempo_restante}}</p>
+        <p>{{registro.cambio_turno}}</p>
+
+    </div>
+</div>

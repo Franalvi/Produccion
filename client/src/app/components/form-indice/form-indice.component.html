@@ -1,0 +1,26 @@
+<div class="row">  
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-grup">
+                        <input type="text" name="nombre_incidencia" [(ngModel)]="indiceinc.nombre_incidencia" placeholder="Nombre" class="form-control" autofocus>
+                    </div>
+                    <div class="form-grup">
+                        <input type="text" name="descripcion" [(ngModel)]="indiceinc.descripcion" placeholder="Descripción" class="form-control">
+                    </div>
+                    <button class = "btn btn-success btn-block" (click)="edit ? updateIndiceIncidencias() : guardarIndiceIncidencias()">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col md-4">
+    <div class="card card-body text-center">
+        <h3>{{indiceinc.nombre_incidencia == '' ? 'Incidencia' : indiceinc.nombre_incidencia}} </h3>
+        <p>{{indiceinc.descripcion}}</p>
+    </div>
+</div>

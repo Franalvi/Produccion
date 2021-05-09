@@ -1,0 +1,113 @@
+<!--TABLA-->
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
+</mat-form-field>
+
+<div class="container">
+    <h6>Registros</h6>
+    <table mat-table [dataSource]="registros"  class="mat-elevation-z8" >
+
+        <ng-container matColumnDef="fecha" >
+            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.fecha}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="id_trabajador" >
+            <th mat-header-cell *matHeaderCellDef> Trabajador </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.id_trabajador}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="id_puesto" >
+            <th mat-header-cell *matHeaderCellDef> Puesto </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.id_puesto}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cantidad_total" >
+            <th mat-header-cell *matHeaderCellDef> Cantidad total </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.cantidad_total}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cantidad_realizada" >
+            <th mat-header-cell *matHeaderCellDef> Cantidad realizada </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.cantidad_realizada}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tiempo_total" >
+            <th mat-header-cell *matHeaderCellDef> Tiempo total </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.tiempo_total}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tiempo_empleado" >
+            <th mat-header-cell *matHeaderCellDef> Tiempo empleado </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.tiempo_empleado}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tiempo_disponible" >
+            <th mat-header-cell *matHeaderCellDef> Tiempo disponible </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.tiempo_disponible}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tiempo_perdido" >
+            <th mat-header-cell *matHeaderCellDef> Tiempo perdido </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.tiempo_perdido}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="produccion" >
+            <th mat-header-cell *matHeaderCellDef> Producción </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.produccion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productividad" >
+            <th mat-header-cell *matHeaderCellDef> Productividad </th>
+            <td mat-cell *matCellDef="let registros" > {{registros.productividad}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ritmo">
+            <th mat-header-cell *matHeaderCellDef> Ritmo </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.ritmo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tiempo_restante">
+            <th mat-header-cell *matHeaderCellDef> Tiempo restante </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.tiempo_restante}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cambio_turno">
+            <th mat-header-cell *matHeaderCellDef> Cambio turno </th>
+            <td mat-cell *matCellDef="let registros"> {{registros.cambio_turno}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let registros" style="text-align: center">
+                <a [routerLink]="['/tabla/registros/editar/', registros.id_registro]">
+                    <button>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="borrar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let registros" style="text-align: center">
+                <button class="btn btn-danger" (click)="deleteRegistros(registros.id_registro)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </td>
+        </ng-container>
+ 
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+</div>
+

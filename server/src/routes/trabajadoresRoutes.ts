@@ -13,6 +13,7 @@ class TrabajadoresController {
     config(): void {
         this.router.get('/', trabajadoresController.list);
         this.router.get('/:id', trabajadoresController.getOne);
+        this.router.get('/turno/:id', trabajadoresController.turno);
         this.router.post('/', trabajadoresController.create);
         this.router.put('/:id', trabajadoresController.update);
         this.router.delete('/:id', trabajadoresController.delete);

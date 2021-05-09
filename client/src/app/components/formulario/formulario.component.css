@@ -1,0 +1,25 @@
+/* Para el formulario tipo 2 que podría implantar
+main  {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+mat-card, app-photos {
+    margin: auto;
+    width: 35%;
+    display: block;
+    margin-top: 2rem;
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-form-field, input {
+    width: 100%;
+  }
+  */

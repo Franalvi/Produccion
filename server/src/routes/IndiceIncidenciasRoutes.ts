@@ -1,6 +1,6 @@
 import {Router} from 'express';
 
-import indiceIncidenciasController from '../controllers/encargadosController';
+import indiceIncidenciasController from '../controllers/IndiceIncidenciasController';
 
 class IndiceIncidenciasRoutes {
 

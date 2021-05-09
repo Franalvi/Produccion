@@ -13,6 +13,7 @@ class PuestosRoutes {
     config(): void {
         this.router.get('/', puestosController.list);
         this.router.get('/:id', puestosController.getOne);
+        this.router.get('/grupo/:id', puestosController.Grupo);
         this.router.post('/', puestosController.create);
         this.router.put('/:id', puestosController.update);
         this.router.delete('/:id', puestosController.delete);

@@ -1,2 +1,91 @@
-<p>¡Dentro tabla!</p>
+<!--<p>¡Dentro tabla!</p>
 <p class="h6">lista.component.html</p>
+<p class="h6">navigation.component.html -> El menú</p>
+<button>Botoncico</button>-->
+
+
+<!--TARJETAS-->
+<div class="col-md-4" *ngFor="let encargado of encargados">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            {{encargado.nombre}}
+            <button class="btn btn-danger" (click)="deleteEncargado(encargado.id_encargado)">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <div class="card-body">
+            <p>Turno: {{encargado.turno}}</p>
+            <p>ID antiguo: {{encargado.id_alfabetico}}</p>
+            <a [routerLink]="['/tabla/encargados/editar', encargado.id_encargado]"class="btn btn-info btn-block">
+                Editar encargado
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<!--TABLA-->
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
+</mat-form-field>
+
+<div class="container">
+    <h6>Encargados</h6>
+    <table mat-table [dataSource]="encargados"  class="mat-elevation-z8" >
+
+        <!-- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- name Column -->
+        <ng-container matColumnDef="nombre" >
+            <th mat-header-cell *matHeaderCellDef> nombre </th>
+            <td mat-cell *matCellDef="let encargados"> {{encargados.nombre}} </td>
+        </ng-container>
+
+        <!-- turno Column -->
+        <ng-container matColumnDef="turno" >
+            <th mat-header-cell *matHeaderCellDef> turno </th>
+            <td mat-cell *matCellDef="let encargados" > {{encargados.turno}} </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="id_alfabetico">
+            <th mat-header-cell *matHeaderCellDef> id_alfabetico </th>
+            <td mat-cell *matCellDef="let encargados"> {{encargados.id_alfabetico}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let encargados" style="text-align: center">
+                <a [routerLink]="['/tabla/encargados/editar/', encargados.id_encargado]">
+                    <button>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="borrar">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let encargados" style="text-align: center">
+                <button class="btn btn-danger" (click)="deleteEncargado(encargados.id_encargado)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </td>
+        </ng-container>
+ 
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+
+    </table>
+</div>

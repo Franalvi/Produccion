@@ -1,0 +1,34 @@
+<div class="row">  
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-grup">
+                        <input type="text" name="nombre" [(ngModel)]="puesto.nombre" placeholder="Nombre" class="form-control" autofocus>
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo" [(ngModel)]="puesto.tiempo" placeholder="Tiempo" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <select type="text" name="grupo" [(ngModel)]="puesto.grupo" placeholder="Grupo" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <button class = "btn btn-success btn-block" (click)="edit ? updatePuesto() : guardarPuesto()">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col md-4">
+    <div class="card card-body text-center">
+        <h3>{{puesto.nombre == '' ? 'Puesto' : puesto.nombre}} </h3>
+        <p>{{puesto.tiempo}}</p>
+        <p>{{puesto.grupo}}</p>
+    </div>
+</div>

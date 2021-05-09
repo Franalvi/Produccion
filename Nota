@@ -1,4 +1,4 @@
-Me llego por el 1:42:30
+En el 1:36:55 Empieza a crear la carpeta components, models y services.
 
 Ejecuciones iniciales:
 cd server->
@@ -7,3 +7,43 @@ cd server->
 
 cd client->
     ng serve
+
+
+
+Añadir datos a la web:
+
+1- Crea sus carpetas lista y formulario
+ng g c components/listaXXX --module app
+ng g c components/formXXX --module app
+    https://stackoverflow.com/questions/46174863/error-more-than-one-module-matches-use-skip-import-option-to-skip-importing-th
+
+2- Hacer el list.components.ts y form.components.ts
+3- Añadirlos en app-routing.
+4- Hacer el lista.component.html y form.component.html
+5- " css
+6- Navigation.
+
+-------------------------------------------------------------------------------------------
+
+Desglosar valladolid.service.ts en cada tabla:
+
+1- cd client -> ng g s services/formXXX
+2- Copiar: 
+
+        -Import:    import { HttpClient } from '@angular/common/http';
+                    import { Observable } from 'rxjs';
+
+                    import {XXX} from '../models/valladolid';
+
+        -En la clase:   API_URI = 'http://localhost:3000/api';
+
+                        constructor(private http: HttpClient) { }
+
+3- Cortar todos los controles relacionados (get, save, etc) de valladolid.
+
+4- Actualizar:  form-xxx.component.ts
+                lista-xxx.component.ts
+        
+
+-------------------------------------------------------------------------------------------
+Solución calendario: https://stackoverflow.com/questions/49426771/angular-material-2-matdatepicker-error-must-import-matnativedatemodule-matm
