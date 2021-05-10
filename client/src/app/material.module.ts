@@ -11,6 +11,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 @NgModule({
     imports: [
@@ -23,7 +26,9 @@ import {MatSelectModule} from '@angular/material/select';
         MatNativeDateModule,
         MatProgressBarModule,
         MatCardModule,
-        MatSelectModule
+        MatSelectModule,
+        MatIconModule,
+        MatExpansionModule
     ],
     exports: [
         MatTableModule,
@@ -35,7 +40,9 @@ import {MatSelectModule} from '@angular/material/select';
         MatNativeDateModule,
         MatProgressBarModule,
         MatCardModule,
-        MatSelectModule
+        MatSelectModule,
+        MatIconModule,
+        MatExpansionModule
     ]
 })
 

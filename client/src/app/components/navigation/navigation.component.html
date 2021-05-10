@@ -1,90 +1,161 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">ISRI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!--Edición-->
-       <span class="navbar-toggler-icon"></span>
+<!-- Encabezado -->
+<div id="main">
+  <nav class="navbar navbar-expand-lg navbar-light fondo-naranja">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">ISRI</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+      <div>
+        <p>Bienvenido a ISRI</p>
+      </div>
 
+    </div>
+  </nav>
+</div>
+<!--Sidenav-->
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [mode]="mode.value" class="barra">
+    <button class="cerrar" mat-button mat-icon-buttom (click)="sidenav.toggle()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+
+    <mat-accordion>
+      <!--Panel Usuarios-->
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="texto">
+            <mat-icon>account_box</mat-icon>
+            <span>Personal</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="texto">
           <!--Encargados-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/encargados" routerLinkActive="active"><i class="fas fa-address-card"></i>Encargados</a> 
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/encargados/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo encargado</a>
-          </li>
-
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/encargados']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Ver Encargados</span>
+          </button>
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/encargados/nuevo']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Añadir Encargados</span>
+          </button>
+          <hr>
           <!--Trabajadores-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/trab" routerLinkActive="active"><i class="fas fa-address-card"></i>Trabajadores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/trab/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo trabajador</a>
-          </li>
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/trab']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Ver Trabajadores</span>
+          </button>
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/trab/nuevo']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Añadir Trabajadores</span>
+          </button>
+          
+            
+        </div>
+      </mat-expansion-panel>
 
-          <!--Puestos-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/puestos" routerLinkActive="active"><i class="fas fa-address-card"></i>Puestos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/puestos/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo puesto</a>
-          </li>
+      <!--Panel Clientes-->
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="texto">
+            <mat-icon>account_circle</mat-icon>
+            <span>Reparto</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="texto">
 
-          <!--Experiencia-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/experiencia" routerLinkActive="active"><i class="fas fa-address-card"></i>Experiencia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/experiencia/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva experiencia</a>
-          </li>
+         <!--Puestos-->
+         <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/puestos']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Ver Puestos</span>
+        </button>
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/puestos/nuevo']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Añadir Puestos</span>
+        </button>
+        <hr>
+        <!--Experiencia-->
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/experiencia/']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Ver Experiencia</span>
+        </button>
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/experiencia/nuevo']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Añadir Experiencia</span>
+        </button>
+        <hr>
+        <!--Indice incidencias-->
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/indiceinc/']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Ver Incide incidencias</span>
+        </button>
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/indiceinc/nuevo']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Añadir Indice incidencias</span>
+        </button>
+        <hr>
+        <!--Incidencias-->
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/incidencias/']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Ver Incidencias</span>
+        </button>
+        <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/incidencias/nuevo']">
+          <mat-icon>list_alt</mat-icon>
+          <span>Añadir Incidencias</span>
+        </button>
 
-          <!--Índice-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/indiceinc" routerLinkActive="active"><i class="fas fa-address-card"></i>Índice de incidencias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/indiceinc/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva incidencia habitual</a>
-          </li>
 
-          <!--Incidencias-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/incidencias" routerLinkActive="active"><i class="fas fa-address-card"></i>Incidencias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/incidencias/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva incidencia</a>
-          </li>
+        </div>
+      </mat-expansion-panel>
+
+      <!--Panel Proyectos-->
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="texto">
+            <mat-icon>widgets</mat-icon>
+            <span>Trabajo</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="texto">
 
           <!--Planificación-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/planificacion" routerLinkActive="active"><i class="fas fa-address-card"></i>Planificación</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/planificacion/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva planificación</a>
-          </li>
-
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/planificacion/']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Ver Planificación</span>
+          </button>
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/planificacion/nuevo']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Añadir Planificación</span>
+          </button>
+          <hr>
           <!--Registros-->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/tabla/registros" routerLinkActive="active"><i class="fas fa-address-card"></i>Registros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/tabla/registros/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo registro</a>
-          </li>
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/registros/']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Ver Registros</span>
+          </button>
+          <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/registros/nuevo']">
+            <mat-icon>list_alt</mat-icon>
+            <span>Añadir Registros</span>
+          </button>
           
-          <!--<li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> Edición
-          </li>-->
-        </ul>
-      </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </mat-sidenav>
+  <mat-sidenav-content [ngClass]="{imagen: imagen == true}" style=" height: 95vh;">
+
+    <div class="titulo">
+      <button mat-icon-button color="primary" style="float: left" (click)="sidenav.toggle()">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+
     </div>
-  </div>
-  </nav>
+    <div class="ml-3 mr-3">
+      <router-outlet></router-outlet>
+    </div>
 
-
-  <!--
-  <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
-  </mat-drawer-container>
-  -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

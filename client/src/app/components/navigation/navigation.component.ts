@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navigation',
@@ -11,5 +12,13 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  title = 'client';
 
+  mode = new FormControl('side');
+  panelOpenState = false;
+
+  imagen: boolean = true;
+  cambiar() {
+    this.imagen = false
+  }
 }

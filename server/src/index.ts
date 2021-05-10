@@ -10,7 +10,7 @@ import puestosRoutes from './routes/puestosRoutes';
 import experienciaRoutes from './routes/experienciaRoutes';
 import registrosRoutes from './routes/registrosRoutes';
 import incidenciasRoutes from './routes/incidenciasRoutes';
-import indiceIncidenciasRoutes from './routes/indiceIncidenciasRoutes';
+import indiceIncidenciasRoutes from './routes/IndiceIncidenciasRoutes';
 import planificacionRoutes from './routes/planificacionRoutes';
 
 

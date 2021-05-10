@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">ISRI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!--Edición-->
+       <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <!--Encargados-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/encargados" routerLinkActive="active"><i class="fas fa-address-card"></i>Encargados</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/encargados/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo encargado</a>
+          </li>
+
+          <!--Trabajadores-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/trab" routerLinkActive="active"><i class="fas fa-address-card"></i>Trabajadores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/trab/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo trabajador</a>
+          </li>
+
+          <!--Puestos-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/puestos" routerLinkActive="active"><i class="fas fa-address-card"></i>Puestos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/puestos/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo puesto</a>
+          </li>
+
+          <!--Experiencia-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/experiencia" routerLinkActive="active"><i class="fas fa-address-card"></i>Experiencia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/experiencia/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva experiencia</a>
+          </li>
+
+          <!--Índice-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/indiceinc" routerLinkActive="active"><i class="fas fa-address-card"></i>Índice de incidencias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/indiceinc/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva incidencia habitual</a>
+          </li>
+
+          <!--Incidencias-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/incidencias" routerLinkActive="active"><i class="fas fa-address-card"></i>Incidencias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/incidencias/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva incidencia</a>
+          </li>
+
+          <!--Planificación-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/planificacion" routerLinkActive="active"><i class="fas fa-address-card"></i>Planificación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/planificacion/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nueva planificación</a>
+          </li>
+
+          <!--Registros-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/tabla/registros" routerLinkActive="active"><i class="fas fa-address-card"></i>Registros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabla/registros/nuevo" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Nuevo registro</a>
+          </li>
+          
+          <!--<li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> Edición
+          </li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+  </nav>
+
+  
+  <!--
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+    <mat-drawer-content>Main content</mat-drawer-content>
+  </mat-drawer-container>
+  -->
+  
