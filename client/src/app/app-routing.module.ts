@@ -17,14 +17,15 @@ import {ListaPlanificacionComponent} from './components/lista-planificacion/list
 import {FormPlanificacionComponent} from './components/form-planificacion/form-planificacion.component'
 import {ListaRegistrosComponent} from './components/lista-registros/lista-registros.component'
 import {FormRegistrosComponent} from './components/form-registros/form-registros.component'
+import {IndexComponent} from './components/index/index.component'
+
 
 const routes: Routes = [
   
-  /*{
+  {
     path:'',
-    redirectTo: '/tabla/registros',
-    pathMatch: 'full'
-  },*/
+    component: IndexComponent
+  },
 
   //Encargados
   {

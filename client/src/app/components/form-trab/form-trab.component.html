@@ -1,29 +1,31 @@
-<div class="row">  
+<div class="row">
     <div class="col-md-4 offset-md-4">
+        <h3>Insertar trabajador</h3>
         <div class="card">
             <div class="card-body">
                 <form>
                     <div class="form-grup">
-                        <input type="text" name="nombre" [(ngModel)]="trabajador.nombre" placeholder="Nombre" class="form-control" autofocus>
+                        <input type="text" name="nombre" [(ngModel)]="trabajador.nombre" placeholder="Nombre"
+                            class="form-control" autofocus>
                     </div>
-                    <div class="form-grup"> 
-                        <!--<select >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>--> <!--Funciona-->
-                        <mat-form-field appearance="fill"> 
+                    <br>
+                    <div class="form-grup">
+                        <mat-form-field appearance="fill">
                             <mat-label>Turno</mat-label>
-                            <select matNativeControl required [(ngModel)]="trabajador.turno">
-                              <option value="null" disabled selected></option>
-                              <option value="1">Aitor</option>
-                              <option value="2">Víctor</option>
+                            <select matNativeControl required [(ngModel)]="trabajador.turno"
+                                [ngModelOptions]="{standalone: true}">
+                                <option value="null" disabled selected></option>
+                                <option *ngFor="let encargado of encargados" [value]="encargado.id_encargado">
+                                    {{encargado.nombre}}</option>
                             </select>
-                            </mat-form-field> <!--No funciona-->
+                        </mat-form-field>
                     </div>
                     <div class="form-grup">
-                        <input type="text" name="id_alfabetico" [(ngModel)]="trabajador.id_alfabetico" placeholder="ID alfabético" class="form-control">
+                        <input type="text" name="id_alfabetico" [(ngModel)]="trabajador.id_alfabetico"
+                            placeholder="ID alfabético" class="form-control">
                     </div>
-                    <button class = "btn btn-success btn-block" (click)="edit ? updateTrabajador() : guardarTrabajador()">
+                    <br>
+                    <button class="btn btn-success btn-block" (click)="edit ? updateTrabajador() : guardarTrabajador()">
                         Guardar
                     </button>
                 </form>

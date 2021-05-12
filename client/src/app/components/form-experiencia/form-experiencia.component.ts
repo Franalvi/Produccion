@@ -2,7 +2,11 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/models/valladolid';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import {ExperienciaService} from '../../services/experiencia.service';
+import { ExperienciaService } from '../../services/experiencia.service';
+import { TrabajadoresService } from "../../services/trabajadores.service";
+import { PuestosService } from "../../services/puestos.service";
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form-experiencia',
@@ -11,7 +15,7 @@ import {ExperienciaService} from '../../services/experiencia.service';
 })
 export class FormExperienciaComponent implements OnInit {
 
-  @HostBinding ('class') classes = 'row';
+  @HostBinding('class') classes = 'row';
 
   experiencia: Experiencia = {
     id_experiencia: 0,
@@ -22,14 +26,20 @@ export class FormExperienciaComponent implements OnInit {
   };
 
   edit: boolean = false;
-
-  constructor(private valladolidService: ExperienciaService, private router: Router, private activedRoute: ActivatedRoute) { }
+  trabajadores;
+  puestos;
+  constructor(private experienciaService: ExperienciaService, private trabajadoresService: TrabajadoresService, private puestosService: PuestosService, private router: Router, private activedRoute: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     const params = this.activedRoute.snapshot.params;
-    console.log(params)
+    this.getExperiencia(params)
+    this.getTrabajadores()
+    this.getPuestos()
+  }
+
+  getExperiencia(params) {
     if (params.id) {
-      this.valladolidService.getExperiencia(params.id)
+      this.experienciaService.getExperiencia(params.id)
         .subscribe(
           res => {
             this.experiencia = res[0];
@@ -41,34 +51,63 @@ export class FormExperienciaComponent implements OnInit {
     }
   }
 
-  guardarExperiencia () {
+  getTrabajadores() {
+    this.trabajadoresService.getTrabajadores().subscribe(
+      res => {
+        this.trabajadores = res;
+      },
+      err => console.log(err)
+    )
+  }
+
+  getPuestos() {
+    this.puestosService.getPuestos().subscribe(
+      res => {
+        this.puestos = res;
+      },
+      err => console.log(err)
+    )
+  }
+
+  guardarExperiencia() {
     delete this.experiencia.id_experiencia;
+    if (this.experiencia.id_trabajador != null && this.experiencia.id_puesto != null && this.experiencia.disponible != null && this.experiencia.experiencia != null) {
 
-    console.log(this.experiencia);
-    this.valladolidService.saveExperiencias(this.experiencia)
-      .subscribe (
-        res => {
-          console.log(res)
-          this.router.navigate(['/tabla/experiencia']);
-        },
-        err => console.error(err)
-    )
+      console.log(this.experiencia);
+      this.experienciaService.saveExperiencias(this.experiencia)
+        .subscribe(
+          res => {
+            console.log(res)
+            this.router.navigate(['/tabla/experiencia']);
+          },
+          err => console.error(err)
+        )
+    } else {
+      this._snackBar.open('No se han insertado todos los datos, insértelos y pruebe de nuevo. 🍕', 'X', {
+        duration: 5000,
+      });
+    }
   }
 
-  updateExperiencia () {
+  updateExperiencia() {
+    if (this.experiencia.id_trabajador != null && this.experiencia.id_puesto != null && this.experiencia.disponible != null && this.experiencia.experiencia != null) {
 
 
-    console.log(this.edit)
-    console.log(this.experiencia)
-    console.log(this.experiencia.id_experiencia)
-    this.valladolidService.updateExperiencias(this.experiencia.id_experiencia, this.experiencia)
-      .subscribe(
-        res => {
-          console.log(res)
-          this.router.navigate(['/tabla/experiencia']);
-        },
-        err => console.log(err)
-    )
+      console.log(this.edit)
+      console.log(this.experiencia)
+      console.log(this.experiencia.id_experiencia)
+      this.experienciaService.updateExperiencias(this.experiencia.id_experiencia, this.experiencia)
+        .subscribe(
+          res => {
+            console.log(res)
+            this.router.navigate(['/tabla/experiencia']);
+          },
+          err => console.log(err)
+        )
+    } else {
+      this._snackBar.open('No se han insertado todos los datos, insértelos y pruebe de nuevo. 🍕', 'X', {
+        duration: 5000,
+      });
+    }
   }
-
 }

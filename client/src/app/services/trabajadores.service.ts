@@ -13,7 +13,7 @@ export class TrabajadoresService {
 
   constructor(private http: HttpClient) { }
 
-  getTrabajadores(){
+  getTrabajadores(): Observable<any>{
     return this.http.get(`${this.API_URI}/trabajadores`);
   }
 

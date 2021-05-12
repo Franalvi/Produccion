@@ -36,6 +36,8 @@ import { ListaPlanificacionComponent } from './components/lista-planificacion/li
 import { FormPlanificacionComponent } from './components/form-planificacion/form-planificacion.component';
 import { ListaRegistrosComponent } from './components/lista-registros/lista-registros.component';
 import { FormRegistrosComponent } from './components/form-registros/form-registros.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { FormRegistrosComponent } from './components/form-registros/form-registr
     ListaPlanificacionComponent,
     FormPlanificacionComponent,
     ListaRegistrosComponent,
-    FormRegistrosComponent
+    FormRegistrosComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { FormRegistrosComponent } from './components/form-registros/form-registr
     PlanificacionService,
     PuestosService,
     RegistrosService,
-    TrabajadoresService
+    TrabajadoresService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

@@ -13,6 +13,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
         MatCardModule,
         MatSelectModule,
         MatIconModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatSnackBarModule
     ],
     exports: [
         MatTableModule,
@@ -42,7 +48,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
         MatCardModule,
         MatSelectModule,
         MatIconModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatSnackBarModule
     ]
 })
 

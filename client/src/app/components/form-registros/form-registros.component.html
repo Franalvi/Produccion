@@ -1,57 +1,96 @@
-<div class="row">  
+<div class="row">
     <div class="col-md-4 offset-md-4">
+        <h3>Insertar registro</h3>
         <div class="card">
             <div class="card-body">
                 <form>
+                    <div class="form-grup">
+                        <div class="form-group">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Fecha</mat-label>
+                                <input [(ngModel)]="registro.fecha" [ngModelOptions]="{standalone: true}"
+                                    (dateChange)="cambioFecha()" matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-grup">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Trabajador</mat-label>
+                            <select matNativeControl required [(ngModel)]="registro.id_trabajador"
+                                [ngModelOptions]="{standalone: true}">
+                                <option value="null" disabled selected></option>
+                                <option *ngFor="let trabajador of trabajadores" [value]="trabajador.id_trabajador">
+                                    {{trabajador.nombre}}</option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-grup">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Puesto</mat-label>
+                            <select matNativeControl required [(ngModel)]="registro.id_puesto"
+                                [ngModelOptions]="{standalone: true}">
+                                <option value="null" disabled selected></option>
+                                <option *ngFor="let puesto of puestos" [value]="puesto.id_puesto">
+                                    {{puesto.nombre}}</option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="cantidad_total"
+                            [(ngModel)]="registro.cantidad_total" placeholder="Cantidad total" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="cantidad_realizada"
+                            [(ngModel)]="registro.cantidad_realizada" placeholder="Cantidad realizada" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo_total"
+                            [(ngModel)]="registro.tiempo_total" placeholder="Tiempo total" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo_empleado"
+                            [(ngModel)]="registro.tiempo_empleado" placeholder="Tiempo empleado" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo_disponible"
+                            [(ngModel)]="registro.tiempo_disponible" placeholder="Tiempo disponible"
+                            class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo_perdido"
+                            [(ngModel)]="registro.tiempo_perdido" placeholder="Tiempo perdido" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="produccion"
+                            [(ngModel)]="registro.produccion" placeholder="Producción" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="productividad"
+                            [(ngModel)]="registro.productividad" placeholder="Productividad" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="ritmo"
+                            [(ngModel)]="registro.ritmo" placeholder="Ritmo" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" name="tiempo_restante"
+                            [(ngModel)]="registro.tiempo_restante" placeholder="Tiempo restante" class="form-control">
+                    </div>
+                    <div class="form-grup">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Cambio de turno</mat-label>
+                            <select matNativeControl required [(ngModel)]="cambioTurno"
+                                [ngModelOptions]="{standalone: true}" (change)="cambioDeTurno()">
+                                <option value="null" disabled selected></option>
+                                <option value="1">Sí</option>
+                                <option value="0">No</option>
+                            </select>
+                        </mat-form-field>
+                    </div>
 
-                    <mat-form-field appearance="fill">
-                        <mat-label>Fecha</mat-label>
-                        <input matInput [matDatepicker]="picker">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                      </mat-form-field>
-                      
-                    <div class="form-grup">
-                        <input type="text" name="fecha" [(ngModel)]="registro.fecha" placeholder="Fecha" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="id_trabajador" [(ngModel)]="registro.id_trabajador" placeholder="ID trabajador" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="id_puesto" [(ngModel)]="registro.id_puesto" placeholder="ID puesto" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="cantidad_total" [(ngModel)]="registro.cantidad_total" placeholder="Cantidad total" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="tiempo_total" [(ngModel)]="registro.tiempo_total" placeholder="Tiempo total" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="tiempo_empleado" [(ngModel)]="registro.tiempo_empleado" placeholder="Tiempo empleado" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="tiempo_disponible" [(ngModel)]="registro.tiempo_disponible" placeholder="Tiempo disponible" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="tiempo_perdido" [(ngModel)]="registro.tiempo_perdido" placeholder="Tiempo perdido" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="produccion" [(ngModel)]="registro.produccion" placeholder="Producción" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="productividad" [(ngModel)]="registro.productividad" placeholder="Productividad" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="ritmo" [(ngModel)]="registro.ritmo" placeholder="Ritmo" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="tiempo_restante" [(ngModel)]="registro.tiempo_restante" placeholder="Tiempo restante" class="form-control">
-                    </div>
-                    <div class="form-grup">
-                        <input type="number" name="cambio_turno" [(ngModel)]="registro.cambio_turno" placeholder="Cambio turno" class="form-control">
-                    </div>
-                    
-                    <button class = "btn btn-success btn-block" (click)="edit ? updateRegistro() : guardarRegistro()">
+                    <button class="btn btn-success btn-block" (click)="edit ? updateRegistro() : guardarRegistro()">
                         Guardar
                     </button>
                 </form>
