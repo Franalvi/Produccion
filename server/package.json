@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/socket.io": "^2.1.13",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "mssql": "^6.3.1",
-    "promise-mysql": "^5.0.3"
+    "promise-mysql": "^5.0.3",
+    "reflect-metadata": "^0.1.13",
+    "socket.io": "^2.4.1",
+    "typeorm": "^0.2.32"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",

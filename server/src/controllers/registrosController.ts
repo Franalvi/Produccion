@@ -10,6 +10,12 @@ class RegistrosController {
         res.json(lectura.recordset);
     }
 
+    // public async list2 (req: Request, res: Response) {
+    //     const lectura = await pool.query(`SELECT Registros.fecha, Trabajador.nombre  FROM Registros INNER JOIN Trabajadores ON Registros.id_trabajador = Trabajador.id_trabajador`);
+    //     console.log(lectura.recordset);
+    //     res.json(lectura.recordset);
+    // }
+
     public async getOne (req: Request, res: Response) {
         const { id } = req.params;
         const lectura = await pool.query(`SELECT * FROM Registros WHERE id_registro = '${id}'`);

@@ -1,57 +1,32 @@
-import express, {Application} from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
+import 'reflect-metadata';
+import app from './app';
+import { createConnection } from 'typeorm';
 
-import indexRoutes from './routes/indexRoutes';
-import encargadosRoutes from './routes/encargadosRoutes';
-import trabajadoresRoutes from './routes/trabajadoresRoutes';
-import grupoPuestosRoutes from './routes/grupoPuestosRoutes';
-import puestosRoutes from './routes/puestosRoutes';
-import experienciaRoutes from './routes/experienciaRoutes';
-import registrosRoutes from './routes/registrosRoutes';
-import incidenciasRoutes from './routes/incidenciasRoutes';
-import indiceIncidenciasRoutes from './routes/indiceIncidenciasRoutes';
-import planificacionRoutes from './routes/planificacionRoutes';
+createConnection();
+const server = app.listen(app.get('port'), () => {
+    console.log('Server on port', app.get('port'));
+})
 
 
-class Server {
 
-    public app: Application
+//Web sockets
+import SocketIO from 'socket.io';
+// import { getController, insertController } from './Events/Controller.events';
+// import { insertResult, getResult } from './Events/Result.event';
+import { getPset, insertPset } from './Events/Pset.events';
 
-    constructor () {
-        this.app = express();
-        this.config();
-        this.routes();
-    }
 
-    config(): void{
-        this.app.set('port', process.env.PORT || 3000);
-        this.app.use(morgan('dev'));
-        this.app.use(cors());
-        this.app.use(express.json());
-        this.app.use(express.urlencoded({extended: false}));
-    }
+const io = SocketIO(server);
+io.on('connection', async(socket) => {
 
-    routes(): void {
-        this.app.use('/', indexRoutes);
-        this.app.use('/api/encargados', encargadosRoutes);
-        this.app.use('/api/trabajadores', trabajadoresRoutes);
-        this.app.use('/api/grupoPuestos', grupoPuestosRoutes);
-        this.app.use('/api/puestos', puestosRoutes);
-        this.app.use('/api/experiencia', experienciaRoutes);
-        this.app.use('/api/registros', registrosRoutes);
-        this.app.use('/api/incidencias', incidenciasRoutes);
-        this.app.use('/api/indiceincidencias', indiceIncidenciasRoutes);
-        this.app.use('/api/planificacion', planificacionRoutes);
-    }
+   /*  //Controller
+    insertController(socket, io)
+    
 
-    start(): void {
-        this.app.listen(this.app.get('port'), () => {
-            console.log('Server on port', this.app.get('port'));
-        });
-    }
-
-}
-
-const server = new Server();
-server.start();
+    //Results
+    insertResult(socket, io) */
+    console.log('Se ha conectado al socket')
+    //pset
+    //insertPset(socket, io)
+    getPset(io)
+})
