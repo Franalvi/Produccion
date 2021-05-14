@@ -38,6 +38,9 @@ import { ListaRegistrosComponent } from './components/lista-registros/lista-regi
 import { FormRegistrosComponent } from './components/form-registros/form-registros.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { IndexComponent } from './components/index/index.component';
+import { ResultComponent } from './components/result/result.component';
+import { PsetComponent } from './components/pset/pset.component';
+import { ControllerComponent } from './components/controller/controller.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { IndexComponent } from './components/index/index.component';
     ListaRegistrosComponent,
     FormRegistrosComponent,
     IndexComponent,
+    ResultComponent,
+    PsetComponent,
+    ControllerComponent,
   ],
   imports: [
     BrowserModule,

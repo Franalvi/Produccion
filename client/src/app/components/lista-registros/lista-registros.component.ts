@@ -6,7 +6,11 @@ import { Registros } from 'src/app/models/valladolid';
 import { RegistrosService } from '../../services/registros.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
+import { TrabajadoresService } from '../../services/trabajadores.service'
+import * as XLSX from 'xlsx';
 
+
+const EXCEL_EXTENSION = '.xlsx'
 
 @Component({
   selector: 'app-lista-registros',
@@ -22,7 +26,7 @@ export class ListaRegistrosComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private valladolidService: RegistrosService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private valladolidService: RegistrosService, private trabajadoresService: TrabajadoresService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -60,5 +64,25 @@ export class ListaRegistrosComponent implements OnInit {
     } else {
       return null
     }
+  }
+  
+  convertTrabajador(trabajadorId){
+    let trabajadorNombre
+    this.trabajadoresService.getTrabajador(trabajadorId).subscribe(
+      res =>{
+        trabajadorNombre = res['nombre']
+      }
+    )
+
+    return trabajadorNombre;
+  }
+  exportar() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.dataSource.filteredData);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    var today = new Date();
+    var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate() + '_';
+    var time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+    var name = date + time + EXCEL_EXTENSION;
+    XLSX.writeFile(workbook, name, { bookType: 'xlsx', type: 'buffer' });
   }
 }

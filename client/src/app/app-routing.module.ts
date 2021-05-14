@@ -18,6 +18,7 @@ import {FormPlanificacionComponent} from './components/form-planificacion/form-p
 import {ListaRegistrosComponent} from './components/lista-registros/lista-registros.component'
 import {FormRegistrosComponent} from './components/form-registros/form-registros.component'
 import {IndexComponent} from './components/index/index.component'
+import { PsetComponent } from './components/pset/pset.component';
 
 
 const routes: Routes = [
@@ -137,6 +138,11 @@ const routes: Routes = [
     {
       path:'tabla/registros/editar/:id',
       component: FormRegistrosComponent
+    },
+
+    {
+      path:'tabla/pset',
+      component: PsetComponent
     },
 
 ];

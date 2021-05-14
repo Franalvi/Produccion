@@ -6,6 +6,10 @@ import { Planificacion } from 'src/app/models/valladolid';
 import { PlanificacionService } from '../../services/planificacion.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
+import * as XLSX from 'xlsx';
+
+
+const EXCEL_EXTENSION = '.xlsx'
 
 @Component({
   selector: 'app-lista-planificacion',
@@ -59,5 +63,14 @@ export class ListaPlanificacionComponent implements OnInit {
     } else {
       return null
     }
+  }
+  exportar() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.dataSource.filteredData);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    var today = new Date();
+    var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate() + '_';
+    var time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+    var name = date + time + EXCEL_EXTENSION;
+    XLSX.writeFile(workbook, name, { bookType: 'xlsx', type: 'buffer' });
   }
 }

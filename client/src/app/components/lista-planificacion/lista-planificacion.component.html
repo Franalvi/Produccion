@@ -1,4 +1,7 @@
 <h3>Planificación</h3>
+<button mat-raised-button class="ml-5 mt-1" (click)="exportar()" style="margin: 2%">
+  <mat-icon>attachment</mat-icon>Exportar a excel
+</button>
 <mat-form-field>
     <mat-label>Filtro</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>

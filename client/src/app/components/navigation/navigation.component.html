@@ -56,11 +56,11 @@
         </div>
       </mat-expansion-panel>
 
-      <!--Panel Clientes-->
+      <!--Panel Reparto-->
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
         <mat-expansion-panel-header>
           <mat-panel-title class="texto">
-            <mat-icon>account_circle</mat-icon>
+            <mat-icon>widgets</mat-icon>
             <span>Reparto</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
@@ -110,11 +110,11 @@
         </div>
       </mat-expansion-panel>
 
-      <!--Panel Proyectos-->
+      <!--Panel Trabajo-->
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
         <mat-expansion-panel-header>
           <mat-panel-title class="texto">
-            <mat-icon>widgets</mat-icon>
+            <mat-icon>build</mat-icon>
             <span>Trabajo</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
@@ -132,11 +132,11 @@
           <hr>
           <!--Registros-->
           <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/registros/']">
-            <mat-icon>list_alt</mat-icon>
+            <mat-icon>pie_chart</mat-icon>
             <span>Ver Registros</span>
           </button>
           <button mat-raised-button class="botonesMatRaised" [routerLink]="['/tabla/registros/nuevo']">
-            <mat-icon>list_alt</mat-icon>
+            <mat-icon>insert_chart</mat-icon>
             <span>Añadir Registros</span>
           </button>
           

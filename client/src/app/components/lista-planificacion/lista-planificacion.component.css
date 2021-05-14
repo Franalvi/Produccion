@@ -10,3 +10,7 @@ table {
 h3 {
     text-align: center;
   }
+  .mat-raised-button {
+    background-color: #ff8c00;
+    color: white;
+}
