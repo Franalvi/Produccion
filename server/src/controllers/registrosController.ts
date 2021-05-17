@@ -5,7 +5,26 @@ import pool from '../database';
 class RegistrosController {
 
     public async list (req: Request, res: Response) {
-        const lectura = await pool.query(`SELECT * FROM Registros`);
+        const lectura = await pool.query(`
+        SELECT TOP (1000) [id_registro]
+        ,[fecha]
+        ,Trabajadores.nombre AS trabajador
+        ,Puestos.nombre AS puesto
+        ,[cantidad_total]
+        ,[cantidad_realizada]
+        ,[tiempo_total]
+        ,[tiempo_empleado]
+        ,[tiempo_disponible]
+        ,[tiempo_perdido]
+        ,[produccion]
+        ,[productividad]
+        ,[ritmo]
+        ,[tiempo_restante]
+        ,[cambio_turno]
+    FROM [Datos_Valladolid].[dbo].[Registros]
+    JOIN Trabajadores ON Registros.id_registro=Trabajadores.id_trabajador
+    JOIN Puestos ON Registros.id_puesto=Puestos.id_puesto
+        `);
         console.log(lectura.recordset);
         res.json(lectura.recordset);
     }

@@ -20,7 +20,7 @@ const EXCEL_EXTENSION = '.xlsx'
 export class ListaRegistrosComponent implements OnInit {
 
   ELEMENT_DATA: Registros[] = [];
-  displayedColumns: string[] = ['fecha', 'id_trabajador', 'id_puesto', 'cantidad_total', 'cantidad_realizada', 'tiempo_total', 'tiempo_empleado', 'tiempo_disponible', 'tiempo_perdido', 'produccion', 'productividad', 'ritmo','tiempo_restante', 'cambio_turno', 'editar', 'borrar'];
+  displayedColumns: string[] = ['fecha', 'trabajador', 'puesto', 'cantidad_total', 'cantidad_realizada', 'tiempo_total', 'tiempo_empleado', 'tiempo_disponible', 'tiempo_perdido', 'produccion', 'productividad', 'ritmo','tiempo_restante', 'cambio_turno', 'editar', 'borrar'];
   dataSource = new MatTableDataSource<Registros>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

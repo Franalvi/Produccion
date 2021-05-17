@@ -179,10 +179,10 @@ export class Result extends BaseEntity{
     @Column()
     RES_Gyro_Compensation_Angle?:number;
 
+    @ManyToOne(Type => Controller, Controller => Controller.CTRL_ID)
+    RES_ControllerId?: number; //El error viene de aquí. Concretamente del RES_ControllerId.
+
     @ManyToOne(Type => PSET, Pset => Pset.PS_ID)
     RES_PsetId?: number;
-
-    @ManyToOne(Type => Controller, Controller => Controller.CTRL_ID)
-    RES_ControllerId?: number
 }
  */

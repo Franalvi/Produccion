@@ -18,6 +18,7 @@ export class PsetService {
   constructor(private http:HttpClient) { this.socket = io(this.url) }
 
   getPsetPorSocket():Observable<any>{
+    console.log('GetPsetPorSocket')
     return new Observable((s) => {
       this.socket.on('PSET', (data) => {
         s.next(data)
@@ -25,10 +26,12 @@ export class PsetService {
     })
   }
   emit(event:string, data:any){
+    console.log('Emit')
     this.socket.emit(event, data)
   }
 
   getPset():Observable<any>{
+    console.log('GetPset')
     return this.http.get<any[]>(`${this.API_URI}`)
   }
 

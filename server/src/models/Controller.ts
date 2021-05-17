@@ -1,4 +1,4 @@
-/* import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 
 @Entity()
 export class Controller extends BaseEntity{
@@ -23,4 +23,4 @@ export class Controller extends BaseEntity{
 
     @Column()
     CTRL_REMOVE_DATE?:Date;
-} */
+}

@@ -26,16 +26,14 @@ export class PsetComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getPset();
+    this.psetService.getPsetPorSocket().subscribe(data => {
+      this.getPset()
+    });
+    setInterval(() => {this.getPset() }, 2000);
   }
 
-
-
- response
-
-
-
-
-  async getPset() {
+  response
+  getPset() {
 
     this.psetService.getPset().subscribe(
       res =>{
@@ -47,19 +45,6 @@ export class PsetComponent implements OnInit {
       }
     )
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

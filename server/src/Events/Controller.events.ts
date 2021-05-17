@@ -1,4 +1,4 @@
-/* import { Socket } from "socket.io";
+import { Socket } from "socket.io";
 import { Controller } from "../models/Controller";
 
 export function insertController(socket:Socket, io:any){
@@ -13,4 +13,4 @@ export function insertController(socket:Socket, io:any){
 
 export async function getController(io:any){
     io.socket.emit('CONTROLLER', 'CONTROLLER')
-} */
+}
