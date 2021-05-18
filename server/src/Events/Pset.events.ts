@@ -3,14 +3,14 @@ import { getConnection, getRepository } from "typeorm";
 import { PSET } from "../models/Pset";
 
 
-export function insertPset(socket:Socket, io:any){
+/* export function insertPset(socket:Socket, io:any){
     socket.on('insert:PSET', async(data:PSET) => {
         console.log('DATA')
         console.log(data)
         await PSET.insert(data);
         await getPset(io)
     })
-}
+} */
 
 
 export async function getPset(io:any){

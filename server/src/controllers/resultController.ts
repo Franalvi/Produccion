@@ -1,4 +1,4 @@
-/* import { Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 
 import { Controller } from "../models/Controller";
@@ -13,4 +13,4 @@ export const getResult = async (req: Request, res: Response): Promise<Response> 
     return res.json(error)
   }
 
-}; */
+};

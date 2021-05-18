@@ -1,4 +1,4 @@
-/* import { Socket } from "socket.io";
+import { Socket } from "socket.io";
 import { Result } from "../models/Result";
 
 export function insertResult(socket:Socket, io:any){
@@ -13,4 +13,4 @@ export function insertResult(socket:Socket, io:any){
 
 export async function getResult(io:any){
     io.socket.emit('RESULT', 'RESULT')
-} */
+}

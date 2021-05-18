@@ -21,6 +21,6 @@ export class Controller extends BaseEntity{
     @Column()
     CTRL_Version?:number;
 
-    @Column()
-    CTRL_REMOVE_DATE?:Date;
+    /* @Column()
+    CTRL_REMOVE_DATE?:Date; */
 }

@@ -1,11 +1,10 @@
 {
     "type": "mssql",
-    "host": "LAPTOP-T76T7RH8",
+    "host": "SRVEXPVA\\dev",
     "port": 1433,
-    "username": "isri",
-    "password": "isri",
+    "username": "DevIsriVa",
+    "password": "Dev+2022",
     "database": "CVINet_3_Spain_Valladolid",
     "entities": ["build/models/**/*.js"],
     "logging": false
   }
-  

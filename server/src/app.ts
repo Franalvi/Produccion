@@ -26,8 +26,8 @@ import indiceIncidenciasRoutes from './routes/indiceIncidenciasRoutes';
 import planificacionRoutes from './routes/planificacionRoutes';
 import psetRoutes from './routes/psetRoutes';
 import controllerRoutes from './routes/controllerRoutes';
-/* import resultRoutes from './routes/resultRoutes';
- */
+import resultRoutes from './routes/resultRoutes';
+
 app.use('/', indexRoutes)
 app.use('/api/encargados', encargadosRoutes)
 app.use('/api/trabajadores', trabajadoresRoutes)
@@ -40,6 +40,6 @@ app.use('/api/indiceincidencias', indiceIncidenciasRoutes)
 app.use('/api/planificacion', planificacionRoutes)
 app.use('/api/pset',psetRoutes)
 app.use('/api/controller',controllerRoutes)
-//app.use('/api/result',resultRoutes)
+app.use('/api/result',resultRoutes)
 
 export default app;

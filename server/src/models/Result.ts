@@ -1,4 +1,4 @@
-/* import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Controller } from "./Controller";
 import { PSET } from "./Pset";
 
@@ -150,39 +150,48 @@ export class Result extends BaseEntity{
     RES_ValueIdentifier10?:string;
     @Column()
     RES_BACKUP?:number;
+    // @Column()
+    // RES_ResultTypeId?:number;
+    // @Column()
+    // RES_FinalCurrent_Percent?:number;
+    // @Column()
+    // RES_MinCurrent_Percent?:number;
+    // @Column()
+    // RES_MaxCurrent_Percent?:number;
+    // @Column()
+    // RES_SecondFinalAngle?:number;
+    // @Column()
+    // RES_SecondFinalTorque?:number;
+    // @Column()
+    // RES_IsAggregation?:number;
+    // @Column()
+    // RES_IsAggregationTool?:number;
+    // @Column()
+    // RES_SecondTransducerMode?:number;
+    // @Column()
+    // RES_SecondTransducer_TorqueDev?:number;
+    // @Column()
+    // RES_SecondTransducer_AngleDev?:number;
+    // @Column()
+    // RES_StepNumberDiscriminant?:number;
+    // @Column()
+    // RES_TuType?:number;
+    // @Column()
+    // RES_Gyro_Compensation_Angle?:number;
+/*     @Column()
+    RES_ControllerId?: number; //El error viene de aquí. Concretamente del RES_ControllerId.
+
     @Column()
-    RES_ResultTypeId?:number;
-    @Column()
-    RES_FinalCurrent_Percent?:number;
-    @Column()
-    RES_MinCurrent_Percent?:number;
-    @Column()
-    RES_MaxCurrent_Percent?:number;
-    @Column()
-    RES_SecondFinalAngle?:number;
-    @Column()
-    RES_SecondFinalTorque?:number;
-    @Column()
-    RES_IsAggregation?:number;
-    @Column()
-    RES_IsAggregationTool?:number;
-    @Column()
-    RES_SecondTransducerMode?:number;
-    @Column()
-    RES_SecondTransducer_TorqueDev?:number;
-    @Column()
-    RES_SecondTransducer_AngleDev?:number;
-    @Column()
-    RES_StepNumberDiscriminant?:number;
-    @Column()
-    RES_TuType?:number;
-    @Column()
-    RES_Gyro_Compensation_Angle?:number;
+    RES_PsetId?: number; */
+
 
     @ManyToOne(Type => Controller, Controller => Controller.CTRL_ID)
     RES_ControllerId?: number; //El error viene de aquí. Concretamente del RES_ControllerId.
 
     @ManyToOne(Type => PSET, Pset => Pset.PS_ID)
     RES_PsetId?: number;
-}
- */
+    
+} 
+
+// 74
+// 87

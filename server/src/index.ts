@@ -13,7 +13,7 @@ const server = app.listen(app.get('port'), () => {
 import SocketIO from 'socket.io';
 import { getController } from './Events/Controller.events';
 // import { getResult } from './Events/Result.event';
-import { getPset, insertPset } from './Events/Pset.events';
+import { getPset } from './Events/Pset.events';
 
 
 const io = SocketIO(server);

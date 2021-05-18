@@ -1,1 +1,57 @@
-<p>controller works!</p>
+<h3>CONTROLLER</h3>
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- CTRL_ID Column -->
+        <ng-container matColumnDef="CTRL_ID">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CTRL_ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.CTRL_ID}} </td>
+        </ng-container>
+
+        <!-- CTRL_Name Column -->
+        <ng-container matColumnDef="CTRL_Name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CTRL_Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.CTRL_Name}} </td>
+        </ng-container>
+
+        <!-- CTRL_IPAddress Column -->
+        <ng-container matColumnDef="CTRL_IPAddress">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CTRL_IPAddress </th>
+            <td mat-cell *matCellDef="let row"> {{row.CTRL_IPAddress}} </td>
+        </ng-container>
+
+        <!-- CTRL_Type Column -->
+        <ng-container matColumnDef="CTRL_Type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CTRL_Type </th>
+            <td mat-cell *matCellDef="let row"> {{row.CTRL_Type}} </td>
+        </ng-container>
+
+        <!-- CTRL_WorkingAreaId Column -->
+        <ng-container matColumnDef="CTRL_WorkingAreaId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CTRL_WorkingAreaId </th>
+            <td mat-cell *matCellDef="let row"> {{row.CTRL_WorkingAreaId}} </td>
+        </ng-container>
+
+        <!-- CTRL_Version Column -->
+        <ng-container matColumnDef="CTRL_Version">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> CTRL_Version </th>
+            <td mat-cell *matCellDef="let row"> {{row.CTRL_Version}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No se encuentra el dato con el filtro "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[1000]"></mat-paginator>
+</div>

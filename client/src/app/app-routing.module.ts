@@ -19,6 +19,7 @@ import {ListaRegistrosComponent} from './components/lista-registros/lista-regist
 import {FormRegistrosComponent} from './components/form-registros/form-registros.component'
 import {IndexComponent} from './components/index/index.component'
 import { PsetComponent } from './components/pset/pset.component';
+import { ControllerComponent } from './components/controller/controller.component';
 
 
 const routes: Routes = [
@@ -140,11 +141,17 @@ const routes: Routes = [
       component: FormRegistrosComponent
     },
 
+    //PSET
     {
       path:'tabla/pset',
       component: PsetComponent
     },
 
+    //PSET
+    {
+      path:'tabla/controller',
+      component: ControllerComponent
+    },
 ];
 
 @NgModule({
